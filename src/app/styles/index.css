@@ -1,4 +1,20 @@
-* {
+@import './fonts.css';
+
+:root {
+  font-family: 'Manrope', sans-serif;
+
+  --color-primary: #6a0bff;
+  --color-gray: #8c8c8c;
+  --color-background: #f4f4f4;
+  --color-surface: #ffffff;
+  --color-text-primary: #191919;
+  --color-text-secondary: #6f6f6f;
+  --color-border: #e8e8e8;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -10,7 +26,13 @@ body,
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
 }
 
 button,
@@ -22,4 +44,16 @@ select {
 
 button {
   cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

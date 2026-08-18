@@ -1,0 +1,14 @@
+.navigation {
+  justify-content: start;
+  flex: 1;
+}
+
+.navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.link {
+  font-weight: 500;
+}

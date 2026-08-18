@@ -1,0 +1,22 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  padding: 11.5px 28.5px;
+}
+
+.primary {
+  border-radius: 12px;
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.text {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 0;
+}
