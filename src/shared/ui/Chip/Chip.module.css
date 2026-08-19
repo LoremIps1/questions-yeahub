@@ -1,0 +1,33 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 12px;
+
+  border: 1px solid #bababa;
+  border-radius: 12px;
+
+  background-color: transparent;
+  color: #303030;
+
+  font-weight: 500;
+  line-height: 1.4;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.chip:hover,
+.selected {
+  border-color: var(--color-primary);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

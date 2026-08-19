@@ -1,0 +1,87 @@
+.root {
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+}
+
+.header {
+  margin: 0;
+  font-size: 20px;
+  line-height: 120%;
+  font-weight: 500;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 24px;
+  border: 0;
+  background: transparent;
+
+  color: inherit;
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+.trigerLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.beforeTrigger {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: var(--color-primary);
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.trigger[data-state='open'] .chevron {
+  transform: rotate(180deg);
+}
+
+.content {
+  overflow: hidden;
+}
+
+.content[data-state='open'] {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.content[data-state='closed'] {
+  animation: accordion-up 0.2s ease-out;
+}
+
+.contentInner {
+  padding: 0 24px 24px;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
