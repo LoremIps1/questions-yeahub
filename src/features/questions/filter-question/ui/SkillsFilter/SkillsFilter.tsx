@@ -5,7 +5,7 @@ import { useGetSkillsQuery } from '@/entities/skills';
 import { Chip } from '@/shared/ui/Chip';
 import { ExpandableList } from '@/shared/ui/ExpandableList';
 
-import { SpecializationFilterSkeleton } from '../SpecializationFilter/SpecializationFilter.skeleton';
+import { SkillsFilterSkeleton } from './SkillsFilter.skeleton';
 
 const VISIBLE_COUNT = 5;
 
@@ -24,7 +24,7 @@ export function SkillsFilter() {
   });
 
   if (isLoading) {
-    return <SpecializationFilterSkeleton />;
+    return <SkillsFilterSkeleton />;
   }
 
   if (isError || !data) {

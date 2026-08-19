@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
 import { useGetSpecializationsQuery } from '@/entities/specialization';
 import { Chip } from '@/shared/ui/Chip';
 import { ExpandableList } from '@/shared/ui/ExpandableList';
