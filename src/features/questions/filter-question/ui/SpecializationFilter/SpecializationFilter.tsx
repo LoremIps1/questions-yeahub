@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
 import { useGetSpecializationsQuery } from '@/entities/specialization';
 import { Chip } from '@/shared/ui/Chip';
 import { ExpandableList } from '@/shared/ui/ExpandableList';
+import { SpecializationFilterSkeleton } from './SpecializationFilter.skeleton';
 
 const VISIBLE_COUNT = 5;
 
@@ -19,7 +19,7 @@ export function SpecializationFilter() {
   });
 
   if (isLoading) {
-    return <div>Загрузка...</div>;
+    return <SpecializationFilterSkeleton />;
   }
 
   if (isError || !data) {

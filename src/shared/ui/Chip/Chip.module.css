@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  gap: 8px;
   padding: 9px 12px;
 
   border: 1px solid #bababa;
@@ -26,6 +26,11 @@
     background-color: var(--color-primary);
     color: white;
   }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .selected {
@@ -35,4 +40,9 @@
 .chip:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.skeleton {
+  height: 42px;
+  width: 130px;
 }

@@ -15,13 +15,14 @@ export function QuestionsList() {
   const page = Number(searchParams.get('page')) || 1;
   const search = searchParams.get('title') ?? '';
   const specializationIdParam = searchParams.get('specializationId');
-
+  const skills = searchParams.get('skills')?.split(',') ?? [];
   const specializationId = specializationIdParam ? Number(specializationIdParam) : undefined;
 
   const { data, isLoading, isError, error } = useGetQuestionsQuery({
     page,
     title: search,
     specializationId,
+    skills: skills.length ? skills : undefined,
   });
 
   useEffect(() => {
@@ -73,7 +74,7 @@ export function QuestionsList() {
         )}
       </div>
 
-      {!(questions.length === 0 && search) && (
+      {!(questions.length === 0) && (
         <Pagination currentPage={currentPage} totalPages={totalPages} onChange={handlePageChange} />
       )}
     </Card>
