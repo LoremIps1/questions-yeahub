@@ -20,7 +20,7 @@ export function Header() {
             <Button to={ROUTES.login} variant="text">
               Вход
             </Button>
-            <Button to={ROUTES.login}>Регистрация</Button>
+            <Button to={ROUTES.register}>Регистрация</Button>
           </div>
         </div>
       </Container>

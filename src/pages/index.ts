@@ -1,0 +1,9 @@
+export { HomePage } from './home-page/ui/HomePage';
+export { NotFoundPage } from './notFound-page/ui/NotFoundPage';
+export { TrainerPage } from './trainer-page/ui/TrainerPage';
+export { SkillsPage } from './skills-page/ui/SkillsPage';
+export { RegisterPage } from './register-page/ui/RegisterPage';
+export { QuestionsPage } from './questons-page/ui/QuestionsPage';
+export { QuestionDetailsPage } from './questions-details-page/ui/QuestionDetailsPage';
+export { MaterialsPage } from './materials-page/ui/MaterialsPage';
+export { LoginPage } from './login-page/ui/LoginPage';

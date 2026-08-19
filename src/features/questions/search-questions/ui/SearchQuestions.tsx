@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import SearchIcon from '@/shared/assets/images/icons/Search Icon.svg?url';
@@ -6,6 +7,7 @@ import { Input } from '@/shared/ui/Input';
 
 export function SearchQuestions() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const title = searchParams.get('title') ?? '';
 
@@ -23,9 +25,15 @@ export function SearchQuestions() {
     });
   }, 500);
 
+  useEffect(() => {
+    if (!title && inputRef.current) {
+      inputRef.current.value = '';
+    }
+  }, [title]);
+
   return (
     <Input
-      key={title}
+      ref={inputRef}
       type="search"
       defaultValue={title}
       placeholder="Введите запрос..."

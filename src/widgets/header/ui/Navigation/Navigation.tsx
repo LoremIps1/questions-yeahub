@@ -9,7 +9,11 @@ export function Navigation() {
       <ul className={cn(styles.navLinks)}>
         {navigationItems.map(({ label, to }) => (
           <li>
-            <NavLink to={to} key={to}>
+            <NavLink
+              to={to}
+              key={to}
+              className={({ isActive }) => cn(styles.link, isActive && styles.active)}
+            >
               {label}
             </NavLink>
           </li>

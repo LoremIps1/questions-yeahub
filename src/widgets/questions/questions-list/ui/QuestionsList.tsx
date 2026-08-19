@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-
 import { QuestionAccordion, useGetQuestionsQuery } from '@/entities/question';
 import { Card } from '@/shared/ui/Card';
 import { Pagination } from '@/shared/ui/Pagination';
@@ -8,48 +5,12 @@ import { Pagination } from '@/shared/ui/Pagination';
 import styles from './QuestionsList.module.css';
 import { QuestionsListSkeleton } from './QuestionsList.skeleton';
 import { QuestionsEmptyState } from '@/widgets/questions/questions-list/ui/QuestionsEmptyState/QuestionsEmptyState';
+import { useQuestionFilters } from '@/features/questions/filter-question/model/useQuestionFilters';
 
 export function QuestionsList() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { filters, setPage, resetFilters } = useQuestionFilters();
 
-  const page = Number(searchParams.get('page')) || 1;
-  const search = searchParams.get('title') ?? '';
-  const specializationIdParam = searchParams.get('specializationId');
-  const skills = searchParams.get('skills')?.split(',') ?? [];
-  const specializationId = specializationIdParam ? Number(specializationIdParam) : undefined;
-  const complexity = searchParams.get('complexity')?.split(',').map(Number);
-  const rate = searchParams.get('rate')?.split(',').map(Number);
-
-  const { data, isLoading, isError, error } = useGetQuestionsQuery({
-    page,
-    title: search,
-    specializationId,
-    skills: skills.length ? skills : undefined,
-    complexity: complexity?.length ? complexity : undefined,
-    rate: rate?.length ? rate : undefined,
-  });
-
-  useEffect(() => {
-    if (!searchParams.has('page')) {
-      setSearchParams((params) => {
-        params.set('page', '1');
-        return params;
-      });
-    }
-  }, [searchParams, setSearchParams]);
-
-  const handlePageChange = (nextPage: number) => {
-    setSearchParams((params) => {
-      params.set('page', String(nextPage));
-      return params;
-    });
-  };
-
-  const handleResetFilters = () => {
-    setSearchParams({
-      page: '1',
-    });
-  };
+  const { data, isLoading, isError, error } = useGetQuestionsQuery(filters);
 
   if (isLoading) {
     return <QuestionsListSkeleton />;
@@ -61,8 +22,10 @@ export function QuestionsList() {
     return <Card className={styles.wrap}>Ошибка загрузки базы вопросов: {status}</Card>;
   }
 
-  const { data: questions, total, limit, page: currentPage } = data;
+  const { data: questions, total, limit, page } = data;
+
   const totalPages = Math.ceil(total / limit);
+  const isEmpty = questions.length === 0;
 
   return (
     <Card className={styles.wrap}>
@@ -71,16 +34,14 @@ export function QuestionsList() {
           <h2 className={styles.title}>База вопросов</h2>
         </div>
 
-        {questions.length === 0 ? (
-          <QuestionsEmptyState onReset={handleResetFilters} />
+        {isEmpty ? (
+          <QuestionsEmptyState onReset={resetFilters} />
         ) : (
           questions.map((question) => <QuestionAccordion key={question.id} question={question} />)
         )}
       </div>
 
-      {!(questions.length === 0) && (
-        <Pagination currentPage={currentPage} totalPages={totalPages} onChange={handlePageChange} />
-      )}
+      {!isEmpty && <Pagination currentPage={page} totalPages={totalPages} onChange={setPage} />}
     </Card>
   );
 }

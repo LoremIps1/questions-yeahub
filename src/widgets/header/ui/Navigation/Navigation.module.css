@@ -12,3 +12,7 @@
 .link {
   font-weight: 500;
 }
+
+.active {
+  color: var(--color-primary);
+}
