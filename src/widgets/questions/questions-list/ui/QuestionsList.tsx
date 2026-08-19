@@ -17,12 +17,16 @@ export function QuestionsList() {
   const specializationIdParam = searchParams.get('specializationId');
   const skills = searchParams.get('skills')?.split(',') ?? [];
   const specializationId = specializationIdParam ? Number(specializationIdParam) : undefined;
+  const complexity = searchParams.get('complexity')?.split(',').map(Number);
+  const rate = searchParams.get('rate')?.split(',').map(Number);
 
   const { data, isLoading, isError, error } = useGetQuestionsQuery({
     page,
     title: search,
     specializationId,
     skills: skills.length ? skills : undefined,
+    complexity: complexity?.length ? complexity : undefined,
+    rate: rate?.length ? rate : undefined,
   });
 
   useEffect(() => {
