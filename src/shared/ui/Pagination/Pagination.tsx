@@ -1,8 +1,11 @@
 import { cn } from '@/shared/lib/cn';
 
-import styles from './Pagination.module.css';
 import ArrowLeft from '@/shared/assets/images/icons/arrow-left.svg?url';
 import ArrowRight from '@/shared/assets/images/icons/arrow-right.svg?url';
+
+import { getPaginationPages } from './getPaginationPages';
+
+import styles from './Pagination.module.css';
 
 interface PaginationProps {
   currentPage: number;
@@ -11,6 +14,8 @@ interface PaginationProps {
 }
 
 export function Pagination({ currentPage, totalPages, onChange }: PaginationProps) {
+  const pages = getPaginationPages(currentPage, totalPages);
+
   return (
     <nav className={styles.pagination} aria-label="Пагинация">
       <button
@@ -18,21 +23,39 @@ export function Pagination({ currentPage, totalPages, onChange }: PaginationProp
         onClick={() => onChange(currentPage - 1)}
         disabled={currentPage === 1}
         className={styles.arrow}
+        aria-label="Предыдущая страница"
       >
-        <img src={ArrowLeft} alt="arrow-left" width={20} height={20} />
+        <img src={ArrowLeft} alt="" width={20} height={20} />
       </button>
 
-      {Array.from({ length: totalPages }, (_, index) => {
-        const page = index + 1;
+      {pages.map((item, index) => {
+        if (item === 'ellipsis') {
+          return (
+            <svg
+              key={`ellipsis-${index}`}
+              width="14"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.5 16C17.5 16.2967 17.412 16.5867 17.2472 16.8334C17.0824 17.08 16.8481 17.2723 16.574 17.3858C16.2999 17.4993 15.9983 17.5291 15.7074 17.4712C15.4164 17.4133 15.1491 17.2704 14.9393 17.0607C14.7296 16.8509 14.5867 16.5836 14.5288 16.2926C14.4709 16.0017 14.5007 15.7001 14.6142 15.426C14.7277 15.1519 14.92 14.9176 15.1666 14.7528C15.4133 14.588 15.7033 14.5 16 14.5C16.3978 14.5 16.7794 14.658 17.0607 14.9393C17.342 15.2206 17.5 15.6022 17.5 16ZM24.5 14.5C24.2033 14.5 23.9133 14.588 23.6666 14.7528C23.42 14.9176 23.2277 15.1519 23.1142 15.426C23.0007 15.7001 22.9709 16.0017 23.0288 16.2926C23.0867 16.5836 23.2296 16.8509 23.4393 17.0607C23.6491 17.2704 23.9164 17.4133 24.2074 17.4712C24.4983 17.5291 24.7999 17.4993 25.074 17.3858C25.3481 17.2723 25.5824 17.08 25.7472 16.8334C25.912 16.5867 26 16.2967 26 16C26 15.6022 25.842 15.2206 25.5607 14.9393C25.2794 14.658 24.8978 14.5 24.5 14.5ZM7.5 14.5C7.20333 14.5 6.91332 14.588 6.66665 14.7528C6.41997 14.9176 6.22771 15.1519 6.11418 15.426C6.00065 15.7001 5.97094 16.0017 6.02882 16.2926C6.0867 16.5836 6.22956 16.8509 6.43934 17.0607C6.64912 17.2704 6.91639 17.4133 7.20737 17.4712C7.49834 17.5291 7.79994 17.4993 8.07403 17.3858C8.34811 17.2723 8.58238 17.08 8.74721 16.8334C8.91203 16.5867 9 16.2967 9 16C9 15.6022 8.84197 15.2206 8.56066 14.9393C8.27936 14.658 7.89783 14.5 7.5 14.5Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          );
+        }
 
         return (
           <button
-            key={page}
+            key={item}
             type="button"
-            onClick={() => onChange(page)}
-            className={cn(styles.page, currentPage === page && styles.active)}
+            onClick={() => onChange(item)}
+            className={cn(styles.page, currentPage === item && styles.active)}
+            aria-current={currentPage === item ? 'page' : undefined}
           >
-            {page}
+            {item}
           </button>
         );
       })}
@@ -42,8 +65,9 @@ export function Pagination({ currentPage, totalPages, onChange }: PaginationProp
         onClick={() => onChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={styles.arrow}
+        aria-label="Следующая страница"
       >
-        <img src={ArrowRight} alt="arrow-left" width={20} height={20} />
+        <img src={ArrowRight} alt="" width={20} height={20} />
       </button>
     </nav>
   );

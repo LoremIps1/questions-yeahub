@@ -1,0 +1,50 @@
+.wrapper {
+  position: relative;
+}
+
+.pre {
+  overflow-x: auto;
+
+  margin: 20px 0;
+  padding: 28px 80px 28px 24px;
+
+  border-radius: 16px;
+
+  background-color: #282c34;
+  color: #f8f8f2;
+
+  font-family: monospace;
+  font-size: 18px;
+  line-height: 1.5;
+
+  code {
+    font-family: inherit;
+  }
+}
+
+.copy {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background-color: rgb(255 255 255 / 20%);
+  color: #fff;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(255 255 255 / 30%);
+  }
+}

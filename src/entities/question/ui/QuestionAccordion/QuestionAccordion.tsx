@@ -3,12 +3,13 @@ import type { IQuestion } from '../../model/types';
 import styles from './QuestionCard.module.css';
 import { Accordion } from '@/shared/ui';
 import { Badge } from '@/shared/ui/Badge/Badge';
+import { Markdown } from '@/shared/ui/Markdown';
 
-interface IQuestionCardProps {
+interface QuestionAccordionProps {
   question: IQuestion;
 }
 
-export function QuestionCard({ question }: IQuestionCardProps) {
+export function QuestionAccordion({ question }: QuestionAccordionProps) {
   return (
     <Card className={styles.card} size="md">
       <Accordion value={String(question.id)} trigger={question.title}>
@@ -16,16 +17,17 @@ export function QuestionCard({ question }: IQuestionCardProps) {
           <div className={styles.metaList}>
             <Badge variant="default" className={styles.meta}>
               Рейтинг:
-              <Badge variant={'primary'}>{question.rating}</Badge>
+              <Badge variant={'primary'}>{question.rate}</Badge>
             </Badge>
 
             <Badge variant="default" className={styles.meta}>
               Сложность:
-              <Badge variant={'primary'}>{question.difficulty}</Badge>
+              <Badge variant={'primary'}>{question.complexity}</Badge>
             </Badge>
           </div>
 
-          <p className={styles.answer}>{question.shortAnswer}</p>
+          <Markdown>{question.shortAnswer}</Markdown>
+          {/* <p className={styles.answer}>{question.shortAnswer}</p> */}
         </div>
       </Accordion>
     </Card>

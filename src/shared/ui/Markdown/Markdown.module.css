@@ -1,0 +1,62 @@
+.markdown :global(.hljs-keyword) {
+  color: #c678dd;
+}
+
+.markdown :global(.hljs-title) {
+  color: #61afef;
+}
+
+.markdown :global(.hljs-string) {
+  color: #98c379;
+}
+
+.markdown :global(.hljs-variable) {
+  color: #e06c75;
+}
+
+.markdown :global(.hljs-comment) {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.markdown :global(.hljs-built_in) {
+  color: #d19a66;
+}
+
+.markdown {
+  p {
+    margin-bottom: 16px;
+    margin-top: 0;
+    line-height: 1.6;
+
+    code {
+      background: #f0f0f0;
+      border-radius: 3px;
+      color: #26a95f;
+      display: inline;
+      line-height: 1.2;
+      padding: 2px 4px;
+      vertical-align: initial;
+      font-size: 14px;
+    }
+  }
+
+  pre {
+    code {
+      background: #0000;
+      color: white;
+      font-size: 14px;
+      display: block;
+      padding: 12px;
+      scrollbar-color: #b0b0b0 #0000;
+      scrollbar-width: thin;
+      tab-size: 2;
+      line-height: 1.5;
+      max-height: 300px;
+      min-height: 56px;
+      overflow: auto;
+      white-space: pre;
+      word-break: normal;
+    }
+  }
+}
