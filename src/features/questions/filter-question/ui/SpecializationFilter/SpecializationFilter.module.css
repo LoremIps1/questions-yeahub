@@ -1,0 +1,17 @@
+.specializations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.showAll {
+  text-decoration: underline;
+  width: fit-content;
+  font-size: 14px;
+}

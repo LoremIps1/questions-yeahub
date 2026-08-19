@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: 'primary' | 'text';
+  variant?: 'primary' | 'text' | 'secondary';
   to?: string;
 }
 

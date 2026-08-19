@@ -7,14 +7,21 @@ import { Pagination } from '@/shared/ui/Pagination';
 
 import styles from './QuestionsList.module.css';
 import { QuestionsListSkeleton } from './QuestionsList.skeleton';
+import { QuestionsEmptyState } from '@/widgets/questions/questions-list/ui/QuestionsEmptyState/QuestionsEmptyState';
 
 export function QuestionsList() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const page = Number(searchParams.get('page')) || 1;
+  const search = searchParams.get('title') ?? '';
+  const specializationIdParam = searchParams.get('specializationId');
+
+  const specializationId = specializationIdParam ? Number(specializationIdParam) : undefined;
 
   const { data, isLoading, isError, error } = useGetQuestionsQuery({
     page,
+    title: search,
+    specializationId,
   });
 
   useEffect(() => {
@@ -33,6 +40,12 @@ export function QuestionsList() {
     });
   };
 
+  const handleResetFilters = () => {
+    setSearchParams({
+      page: '1',
+    });
+  };
+
   if (isLoading) {
     return <QuestionsListSkeleton />;
   }
@@ -43,7 +56,8 @@ export function QuestionsList() {
     return <Card className={styles.wrap}>Ошибка загрузки базы вопросов: {status}</Card>;
   }
 
-  const totalPages = Math.ceil(data.total / data.limit);
+  const { data: questions, total, limit, page: currentPage } = data;
+  const totalPages = Math.ceil(total / limit);
 
   return (
     <Card className={styles.wrap}>
@@ -52,12 +66,16 @@ export function QuestionsList() {
           <h2 className={styles.title}>База вопросов</h2>
         </div>
 
-        {data.data.map((question) => (
-          <QuestionAccordion key={question.id} question={question} />
-        ))}
+        {questions.length === 0 ? (
+          <QuestionsEmptyState onReset={handleResetFilters} />
+        ) : (
+          questions.map((question) => <QuestionAccordion key={question.id} question={question} />)
+        )}
       </div>
 
-      <Pagination currentPage={data.page} totalPages={totalPages} onChange={handlePageChange} />
+      {!(questions.length === 0 && search) && (
+        <Pagination currentPage={currentPage} totalPages={totalPages} onChange={handlePageChange} />
+      )}
     </Card>
   );
 }

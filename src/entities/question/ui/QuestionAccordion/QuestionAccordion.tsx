@@ -1,6 +1,6 @@
 import { Card } from '@/shared/ui/Card';
 import type { IQuestion } from '../../model/types';
-import styles from './QuestionCard.module.css';
+import styles from './QuestionAccordion.module.css';
 import { Accordion } from '@/shared/ui';
 import { Badge } from '@/shared/ui/Badge/Badge';
 import { Markdown } from '@/shared/ui/Markdown';
@@ -27,7 +27,6 @@ export function QuestionAccordion({ question }: QuestionAccordionProps) {
           </div>
 
           <Markdown>{question.shortAnswer}</Markdown>
-          {/* <p className={styles.answer}>{question.shortAnswer}</p> */}
         </div>
       </Accordion>
     </Card>
