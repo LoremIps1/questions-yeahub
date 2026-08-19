@@ -9,9 +9,3 @@
   flex-direction: column;
   gap: 8px;
 }
-
-.showAll {
-  text-decoration: underline;
-  width: fit-content;
-  font-size: 14px;
-}

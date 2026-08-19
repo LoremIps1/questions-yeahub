@@ -20,9 +20,14 @@
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: white;
+  }
 }
 
-.chip:hover,
 .selected {
   border-color: var(--color-primary);
 }

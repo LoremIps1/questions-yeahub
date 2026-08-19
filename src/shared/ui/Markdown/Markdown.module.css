@@ -28,6 +28,9 @@
     margin-bottom: 16px;
     margin-top: 0;
     line-height: 1.6;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     code {
       background: #f0f0f0;
