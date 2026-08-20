@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0%), #fff);
+  pointer-events: none;
+}
+
+.toggle {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0 auto;
+  color: var(--color-primary);
+}
+
+.arrowDown,
+.arrowUp {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
