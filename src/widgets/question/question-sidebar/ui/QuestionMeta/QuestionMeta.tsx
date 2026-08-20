@@ -6,6 +6,7 @@ import styles from './QuestionMeta.module.css';
 import { ROUTES } from '@/shared/config/routes/routes';
 import { Badge } from '@/shared/ui/Badge/Badge';
 import { Chip } from '@/shared/ui/Chip';
+import { Card } from '@/shared/ui/Card';
 
 interface QuestionMetaProps {
   question: IQuestion;
@@ -13,7 +14,7 @@ interface QuestionMetaProps {
 
 export function QuestionMeta({ question }: QuestionMetaProps) {
   return (
-    <>
+    <Card className={styles.card}>
       <div className={styles.section}>
         <span className={styles.label}>Уровень:</span>
 
@@ -58,6 +59,6 @@ export function QuestionMeta({ question }: QuestionMetaProps) {
         Автор:{' '}
         <a href={`https://t.me/${question.createdBy.username}`}>{question.createdBy.username}</a>
       </div>
-    </>
+    </Card>
   );
 }
