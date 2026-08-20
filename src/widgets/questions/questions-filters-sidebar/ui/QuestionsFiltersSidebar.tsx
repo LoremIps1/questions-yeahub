@@ -1,15 +1,13 @@
-import { Card } from '@/shared/ui/Card';
-import styles from './QuestionsFiltersSidebar.module.css';
 import { SearchQuestions } from '@/features/questions';
 import { FilterQuestions } from '@/features/questions/filter-question';
+import { Sidebar } from '@/shared/ui/Sidebar';
+
 export function QuestionsFiltersSidebar() {
   return (
-    <aside className={styles.sidebar}>
-      <Card className={styles.filters}>
-        <SearchQuestions />
+    <Sidebar>
+      <SearchQuestions />
 
-        <FilterQuestions />
-      </Card>
-    </aside>
+      <FilterQuestions />
+    </Sidebar>
   );
 }

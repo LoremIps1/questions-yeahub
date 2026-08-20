@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.filters {
+.group {
   display: flex;
   flex-direction: column;
   gap: 24px;

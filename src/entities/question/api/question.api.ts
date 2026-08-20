@@ -1,5 +1,6 @@
 import { baseApi } from '@/shared/api/baseApi';
-import { type IQuestionsResponse, type IGetQuestionsParams } from '../model/api-types';
+import type { IQuestionsResponse, IGetQuestionsParams } from '../model/api-types';
+import type { IQuestion } from '../model/types';
 
 export const questionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -9,7 +10,12 @@ export const questionApi = baseApi.injectEndpoints({
         params,
       }),
     }),
+    getQuestionById: builder.query<IQuestion, number>({
+      query: (id) => ({
+        url: `/questions/public-questions/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetQuestionsQuery } = questionApi;
+export const { useGetQuestionsQuery, useGetQuestionByIdQuery } = questionApi;

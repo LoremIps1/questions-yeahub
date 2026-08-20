@@ -1,0 +1,37 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 500;
+  color: #474747;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.badge {
+  gap: 12px;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  line-height: 160%;
+  color: var(--color-primary);
+}
+
+.author {
+  font-weight: 500;
+  color: #303030;
+
+  a {
+    color: var(--color-primary);
+  }
+}

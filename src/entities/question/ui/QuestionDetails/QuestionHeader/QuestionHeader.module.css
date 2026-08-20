@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  gap: 10px;
+}
+
+.image {
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.description {
+  margin: 0;
+  font-weight: 500;
+}
