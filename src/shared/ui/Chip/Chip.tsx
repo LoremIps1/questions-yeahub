@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from 'react';
 
 import { cn } from '@/shared/lib/cn';
 
-import styles from './Chip.module.css';
+import styles from './styles.module.css';
 
 interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected?: boolean;

@@ -1,5 +1,5 @@
-import styles from './Sidebar.module.css';
 import type { ReactNode } from 'react';
+import styles from './styles.module.css';
 import { cn } from '@/shared/lib/cn';
 
 interface ISidebarProps {

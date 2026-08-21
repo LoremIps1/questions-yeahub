@@ -1,6 +1,6 @@
 import { cn } from '@/shared/lib/cn';
 import type { HTMLAttributes } from 'react';
-import styles from './Badge.module.css';
+import styles from './styles.module.css';
 
 interface IBadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: 'default' | 'primary';

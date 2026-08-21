@@ -1,8 +1,7 @@
 import { useState, type ReactNode } from 'react';
 
-import { Button } from '@/shared/ui/Button';
-
-import styles from './ExpandableList.module.css';
+import styles from './styles.module.css';
+import { Button } from '@/shared/ui/Button/Button';
 
 interface ExpandableListProps<T> {
   items: T[];
@@ -33,7 +32,7 @@ export function ExpandableList<T>({
       <div className={styles.list}>{items.map(renderItem)}</div>
 
       {total > visibleCount && (
-        <Button type="button" variant="text" className={styles.toggle} onClick={handleToggle}>
+        <Button variant="text" className={styles.toggle} onClick={handleToggle}>
           {isExpanded ? 'Скрыть' : 'Посмотреть все'}
         </Button>
       )}

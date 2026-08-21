@@ -1,0 +1,45 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+
+  border-radius: 12px;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.default {
+  padding: 11.5px 28.5px;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.text {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 0;
+}
+
+.secondary {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.ghost {
+  background-color: transparent;
+  &:hover {
+    background-color: #f4f4f4;
+  }
+}

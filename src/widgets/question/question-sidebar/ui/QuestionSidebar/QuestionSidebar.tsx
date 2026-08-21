@@ -2,7 +2,7 @@ import { useGetQuestionByIdQuery } from '@/entities/question';
 import { GuruCard } from '../QuestionSidebarGuru/QuestionSidebarGuru';
 import { QuestionSidebarMeta } from '../QuestionSidebarMeta/QuestionSidebarMeta';
 import styles from './styles.module.css';
-import { Sidebar } from '@/shared/ui/Sidebar';
+import { Sidebar } from '@/shared/ui';
 
 interface QuestionSidebarProps {
   questionId: number;

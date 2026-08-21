@@ -1,9 +1,9 @@
-import { Container } from '@/shared/ui/Container';
 import styles from './styles.module.css';
 import { QuestionDetails } from '@/widgets/question/question-details';
 import { BackToQuestions } from '@/features/question/back-to-questions';
-import { QuestionSidebar } from '@/widgets/question';
+import { QuestionSidebar } from '@/widgets/question/question-sidebar';
 import { useParams } from 'react-router-dom';
+import { Container } from '@/shared/ui';
 
 export function QuestionDetailsPage() {
   const { id } = useParams();

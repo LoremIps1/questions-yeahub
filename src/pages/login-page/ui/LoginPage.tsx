@@ -1,5 +1,4 @@
-import { Card } from '@/shared/ui/Card';
-import { Container } from '@/shared/ui/Container';
+import { Card, Container } from '@/shared/ui';
 
 export function LoginPage() {
   return (

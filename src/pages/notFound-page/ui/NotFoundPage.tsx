@@ -1,6 +1,4 @@
-import { Button } from '@/shared/ui/Button';
-import { Card } from '@/shared/ui/Card';
-import { Container } from '@/shared/ui/Container';
+import { Container, Card, Button } from '@/shared/ui';
 import { useNavigate } from 'react-router-dom';
 
 export function NotFoundPage() {

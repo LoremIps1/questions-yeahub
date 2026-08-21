@@ -1,28 +1,28 @@
 import { Link } from 'react-router-dom';
 
-import { QuestionMetric, QustionAuthor, type IQuestion } from '@/entities/question';
+import { QuestionMetric, type IQuestion, QustionAuthor } from '@/entities/question';
+
+import { ROUTES } from '@/shared/config';
+import { Card, Chip, InfoSection } from '@/shared/ui';
 
 import styles from './styles.module.css';
-import { Chip } from '@/shared/ui/Chip';
-import { Card } from '@/shared/ui/Card';
-import { InfoSection } from '@/shared/ui';
-import { ROUTES } from '@/shared/config';
 
-interface QuestionMetaProps {
+interface QuestionSidebarMetaProps {
   question: IQuestion;
 }
 
-export function QuestionSidebarMeta({ question }: QuestionMetaProps) {
+export function QuestionSidebarMeta({ question }: QuestionSidebarMetaProps) {
   return (
     <Card className={styles.card}>
       <InfoSection label="Уровень:">
         <QuestionMetric label="Сложность" value={question.complexity} />
+
         <QuestionMetric label="Рейтинг" value={question.rate} />
       </InfoSection>
 
       <InfoSection label="Навыки:" className={styles.skills}>
         {question.questionSkills.map((skill) => (
-          <Link to={ROUTES.questionsBySkill(skill.id)}>
+          <Link key={skill.id} to={ROUTES.questionsBySkill(skill.id)}>
             <Chip imageSrc={skill.imageSrc} selected>
               {skill.title}
             </Chip>
@@ -32,7 +32,7 @@ export function QuestionSidebarMeta({ question }: QuestionMetaProps) {
 
       <InfoSection label="Ключевые слова:" className={styles.keywords}>
         {question.keywords.map((keyword) => (
-          <Link to={ROUTES.questionsByKeyword(keyword)} className={styles.keywords}>
+          <Link key={keyword} to={ROUTES.questionsByKeyword(keyword)} className={styles.keyword}>
             #{keyword}
           </Link>
         ))}

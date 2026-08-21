@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import SearchIcon from '@/shared/assets/images/icons/Search Icon.svg?url';
-import { useDebouncedCallback } from '@/shared/lib/hooks/useDebouncedCallback';
-import { Input } from '@/shared/ui/Input';
+import { useDebouncedCallback } from '@/shared/lib/hooks';
+import { Input } from '@/shared/ui';
 
 export function SearchQuestions() {
   const [searchParams, setSearchParams] = useSearchParams();

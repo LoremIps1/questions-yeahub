@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'react';
 
 import { cn } from '@/shared/lib/cn';
 
-import styles from './Skeleton.module.css';
+import styles from './styles.module.css';
 
 type SkeletonProps = HTMLAttributes<HTMLDivElement>;
 

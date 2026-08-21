@@ -1,6 +1,5 @@
-import { Skeleton } from '@/shared/ui/Skeleton';
-
-import styles from './Pagination.module.css';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import styles from './styles.module.css';
 
 export function PaginationSkeleton() {
   return (

@@ -1,6 +1,4 @@
-import { Card } from '@/shared/ui/Card';
-import { Markdown } from '@/shared/ui/Markdown';
-
+import { Card, Markdown } from '@/shared/ui';
 import styles from './styles.module.css';
 
 interface QuestionShortAnswerProps {

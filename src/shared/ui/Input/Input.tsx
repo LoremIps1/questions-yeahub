@@ -2,7 +2,7 @@ import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react';
 
 import { cn } from '@/shared/lib/cn';
 
-import styles from './Input.module.css';
+import styles from './styles.module.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   leftIcon?: ReactNode;

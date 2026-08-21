@@ -1,6 +1,6 @@
 import { isValidElement, useState, type ReactNode } from 'react';
 
-import styles from './CodeBlock.module.css';
+import styles from './styles.module.css';
 
 interface CodeBlockProps {
   children: ReactNode;

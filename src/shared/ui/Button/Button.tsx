@@ -1,12 +1,13 @@
 import { cn } from '@/shared/lib/cn';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import styles from './Button.module.css';
 import { Link } from 'react-router-dom';
+import styles from './styles.module.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: 'primary' | 'text' | 'secondary';
+  variant?: 'primary' | 'text' | 'secondary' | 'ghost';
   to?: string;
+  size?: 'default' | 'icon';
 }
 
 export function Button({
@@ -14,10 +15,11 @@ export function Button({
   variant = 'primary',
   to,
   type = 'button',
+  size = 'default',
   className,
   ...props
 }: ButtonProps) {
-  const buttonClassNames = cn(styles.button, styles[variant], className);
+  const buttonClassNames = cn(styles.button, styles[variant], styles[size], className);
 
   if (to) {
     return (

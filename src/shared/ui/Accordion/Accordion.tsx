@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 import { cn } from '@/shared/lib/cn';
 import Chevron from '@/shared/assets/images/icons/chevron.svg?url';
-import styles from './Accordion.module.css';
+import styles from './styles.module.css';
 
 interface AccordionProps {
   value: string;

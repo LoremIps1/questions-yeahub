@@ -4,9 +4,9 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeHighlight from 'rehype-highlight';
 
-import { CodeBlock } from '@/shared/ui/CodeBlock';
 
-import styles from './Markdown.module.css';
+import styles from './styles.module.css';
+import { CodeBlock } from '../CodeBlock/CodeBlock';
 
 interface MarkdownProps {
   children: string;

@@ -1,6 +1,6 @@
 import { cn } from '@/shared/lib/cn';
-import styles from './Container.module.css';
 import type { ReactNode } from 'react';
+import styles from './styles.module.css';
 
 interface Props {
   children: ReactNode;

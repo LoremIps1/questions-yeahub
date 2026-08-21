@@ -1,9 +1,9 @@
-import { Card } from '@/shared/ui/Card';
 import styles from './styles.module.css';
 import GuruAvatar from '@/shared/assets/images/Ruslan-guru.png?url';
 import Telegram from '@/shared/assets/images/icons/Telegram.svg?url';
 import Youtube from '@/shared/assets/images/icons/Youtube.svg?url';
 import Profile from '@/shared/assets/images/icons/Profile.svg?url';
+import { Card } from '@/shared/ui';
 
 export function GuruCard() {
   return (

@@ -1,29 +1,26 @@
-import { Card } from '@/shared/ui/Card';
 import type { IQuestion } from '../../model/types';
-import styles from './QuestionAccordion.module.css';
-import { Accordion } from '@/shared/ui';
-import { Badge } from '@/shared/ui/Badge/Badge';
-import { Markdown } from '@/shared/ui/Markdown';
+import { Accordion, Card, Markdown } from '@/shared/ui';
+import { QuestionMetric } from '../QuestionMetric/QuestionMetric';
+import type { ReactNode } from 'react';
+import styles from './styles.module.css';
 
 interface QuestionAccordionProps {
   question: IQuestion;
+  actions?: ReactNode;
 }
 
-export function QuestionAccordion({ question }: QuestionAccordionProps) {
+export function QuestionAccordion({ question, actions }: QuestionAccordionProps) {
   return (
     <Card className={styles.card} size="md">
       <Accordion value={String(question.id)} trigger={question.title}>
         <div className={styles.content}>
-          <div className={styles.metaList}>
-            <Badge variant="default" className={styles.meta}>
-              Рейтинг:
-              <Badge variant={'primary'}>{question.rate}</Badge>
-            </Badge>
+          <div className={styles.meta}>
+            <div className={styles.metaList}>
+              <QuestionMetric label="Рейтинг" value={question.rate} />
+              <QuestionMetric label="Сложность" value={question.complexity} />
+            </div>
 
-            <Badge variant="default" className={styles.meta}>
-              Сложность:
-              <Badge variant={'primary'}>{question.complexity}</Badge>
-            </Badge>
+            {actions && actions}
           </div>
 
           <Markdown>{question.shortAnswer}</Markdown>

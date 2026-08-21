@@ -1,12 +1,14 @@
-import { Container } from '@/shared/ui/Container';
-import { QuestionsFiltersSidebar, QuestionsList } from '@/widgets/questions';
-import styles from './QuestionsPage.module.css';
+import { QuestionsSidebar } from '@/widgets/questions/questions-sidebar';
+import { QuestionsBlock } from '@/widgets/questions/questions-block';
+import styles from './styles.module.css';
+import { Container } from '@/shared/ui';
+
 export function QuestionsPage() {
   return (
     <Container>
       <div className={styles.content}>
-        <QuestionsList />
-        <QuestionsFiltersSidebar />
+        <QuestionsBlock />
+        <QuestionsSidebar />
       </div>
     </Container>
   );

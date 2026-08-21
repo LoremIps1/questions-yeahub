@@ -1,8 +1,7 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 
-import { Button } from '@/shared/ui/Button';
-
 import styles from './styles.module.css';
+import { Button } from '@/shared/ui/Button/Button';
 
 interface ExpandableContentProps {
   children: ReactNode;

@@ -5,7 +5,7 @@ import ArrowRight from '@/shared/assets/images/icons/arrow-right.svg?url';
 
 import { getPaginationPages } from './getPaginationPages';
 
-import styles from './Pagination.module.css';
+import styles from './styles.module.css';
 
 interface PaginationProps {
   currentPage: number;
