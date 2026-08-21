@@ -7,6 +7,8 @@
   cursor: pointer;
   padding: 11.5px 28.5px;
   border-radius: 12px;
+  gap: 8px;
+  font-weight: 500;
 }
 
 .primary {

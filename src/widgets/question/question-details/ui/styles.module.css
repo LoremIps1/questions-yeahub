@@ -1,5 +1,5 @@
-.details {
+.question {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }

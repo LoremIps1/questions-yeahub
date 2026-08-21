@@ -2,18 +2,18 @@ import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 
 import { Button } from '@/shared/ui/Button';
 
-import styles from './ExpandableContent.module.css';
+import styles from './styles.module.css';
 
 interface ExpandableContentProps {
   children: ReactNode;
-  maxHeight?: number;
+  collapsedHeight?: number;
 }
 
-export function ExpandableContent({ children, maxHeight = 250 }: ExpandableContentProps) {
+export function ExpandableContent({ children, collapsedHeight = 500 }: ExpandableContentProps) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isOverflowing, setIsOverflowing] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
 
   useLayoutEffect(() => {
     const element = contentRef.current;
@@ -22,8 +22,10 @@ export function ExpandableContent({ children, maxHeight = 250 }: ExpandableConte
       return;
     }
 
-    setIsOverflowing(element.scrollHeight > maxHeight);
-  }, [children, maxHeight]);
+    setContentHeight(element.scrollHeight);
+  }, [children]);
+
+  const isOverflowing = contentHeight > collapsedHeight;
 
   return (
     <div className={styles.wrapper}>
@@ -31,7 +33,7 @@ export function ExpandableContent({ children, maxHeight = 250 }: ExpandableConte
         ref={contentRef}
         className={styles.content}
         style={{
-          maxHeight: isExpanded ? 'none' : `${maxHeight}px`,
+          maxHeight: isExpanded ? `${contentHeight}px` : `${collapsedHeight}px`,
         }}
       >
         {children}
@@ -47,23 +49,23 @@ export function ExpandableContent({ children, maxHeight = 250 }: ExpandableConte
           onClick={() => setIsExpanded((prev) => !prev)}
         >
           {isExpanded ? 'Свернуть' : 'Развернуть'}
-          <span className={isExpanded ? styles.arrowUp : styles.arrowDown}>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 7.5L10 12.5L15 7.5"
-                stroke="#6A0BFF"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
+
+          <svg
+            className={isExpanded ? styles.arrowUp : styles.arrowDown}
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 7.5L10 12.5L15 7.5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </Button>
       )}
     </div>

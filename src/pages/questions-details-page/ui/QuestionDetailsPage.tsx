@@ -1,44 +1,23 @@
-import { useParams } from 'react-router-dom';
-
-import { QuestionDetails, useGetQuestionByIdQuery } from '@/entities/question';
 import { Container } from '@/shared/ui/Container';
+import styles from './styles.module.css';
+import { QuestionDetails } from '@/widgets/question/question-details';
+import { BackToQuestions } from '@/features/question/back-to-questions';
 import { QuestionSidebar } from '@/widgets/question';
-import styles from './QuestionDetailsPage.module.css';
+import { useParams } from 'react-router-dom';
 
 export function QuestionDetailsPage() {
   const { id } = useParams();
 
   const questionId = Number(id);
-
-  const {
-    data: question,
-    isLoading,
-    isError,
-  } = useGetQuestionByIdQuery(questionId, {
-    skip: !questionId,
-  });
-
-  if (isLoading) {
-    return (
-      <Container>
-        <div>Загрузка...</div>
-      </Container>
-    );
-  }
-
-  if (isError || !question) {
-    return (
-      <Container>
-        <div>Вопрос не найден</div>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <div className={styles.content}>
-        <QuestionDetails question={question} />
-        <QuestionSidebar question={question} />
+        <BackToQuestions />
+
+        <div className={styles.row}>
+          <QuestionDetails questionId={questionId} />
+          <QuestionSidebar questionId={questionId} />
+        </div>
       </div>
     </Container>
   );

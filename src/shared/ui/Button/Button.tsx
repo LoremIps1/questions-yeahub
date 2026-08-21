@@ -9,7 +9,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   to?: string;
 }
 
-export function Button({ children, variant = 'primary', to, className, ...props }: ButtonProps) {
+export function Button({
+  children,
+  variant = 'primary',
+  to,
+  type = 'button',
+  className,
+  ...props
+}: ButtonProps) {
   const buttonClassNames = cn(styles.button, styles[variant], className);
 
   if (to) {
@@ -20,7 +27,7 @@ export function Button({ children, variant = 'primary', to, className, ...props 
     );
   }
   return (
-    <button className={buttonClassNames} {...props}>
+    <button type={type} className={buttonClassNames} {...props}>
       {children}
     </button>
   );

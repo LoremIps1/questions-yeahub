@@ -1,5 +1,5 @@
 import { Card } from '@/shared/ui/Card';
-import styles from './GuruCard.module.css';
+import styles from './styles.module.css';
 import GuruAvatar from '@/shared/assets/images/Ruslan-guru.png?url';
 import Telegram from '@/shared/assets/images/icons/Telegram.svg?url';
 import Youtube from '@/shared/assets/images/icons/Youtube.svg?url';

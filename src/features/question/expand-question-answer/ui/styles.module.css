@@ -1,0 +1,12 @@
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.answerTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+}

@@ -1,7 +1,7 @@
 import { Card } from '@/shared/ui/Card';
-import styles from './QuestionHeader.module.css';
-import type { IQuestion } from '../../../model/types';
+import styles from './styles.module.css';
 import Placeholder from '@/shared/assets/images/placeholder.jpg';
+import type { IQuestion } from '@/entities/question/model/types';
 
 interface QuestionHeaderProps {
   question: IQuestion;
