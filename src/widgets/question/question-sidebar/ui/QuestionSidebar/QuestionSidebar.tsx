@@ -23,7 +23,7 @@ export function QuestionSidebar({ questionId }: QuestionSidebarProps) {
   }
 
   if (isError || !question) {
-    return <div>Вопрос не найден</div>;
+    return null;
   }
 
   return (

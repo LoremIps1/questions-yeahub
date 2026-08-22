@@ -1,19 +1,27 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { Card } from '../Card/Card';
 import styles from './styles.module.css';
+import { cn } from '@/shared/lib/cn';
 
-interface StateMessageProps {
+interface StateMessageProps extends HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
   title: string;
   description?: string;
   action?: ReactNode;
 }
 
-export function StateMessage({ imageSrc, title, description, action }: StateMessageProps) {
+export function StateMessage({
+  imageSrc,
+  title,
+  description,
+  className,
+  action,
+  ...props
+}: StateMessageProps) {
   return (
-    <Card className={styles.content}>
+    <Card className={styles.content} {...props}>
       <img
-        className={styles.img}
+        className={cn(styles.img, className)}
         src={imageSrc}
         alt="Not found"
         loading="lazy"

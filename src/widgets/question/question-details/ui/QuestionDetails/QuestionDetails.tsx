@@ -4,6 +4,7 @@ import { ExpandQuestionAnswer } from '@/features/question/expand-question-answer
 
 import { QuestionDetailsSkeleton } from './QuestionDetails.skeleton';
 import { QuestionDetailsNavigation } from '../QuestionDetailsNavigation/QuestionDetailsNavigation';
+import { QuestionError } from '../QuestionError/QuestionError';
 
 import styles from './styles.module.css';
 
@@ -16,6 +17,7 @@ export function QuestionDetails({ questionId }: QuestionDetailsProps) {
     data: question,
     isLoading,
     isError,
+    refetch,
   } = useGetQuestionByIdQuery(questionId, {
     skip: !questionId,
   });
@@ -25,7 +27,7 @@ export function QuestionDetails({ questionId }: QuestionDetailsProps) {
   }
 
   if (isError || !question) {
-    return <div>Вопрос не найден</div>;
+    return <QuestionError onRetry={refetch} />;
   }
 
   return (
