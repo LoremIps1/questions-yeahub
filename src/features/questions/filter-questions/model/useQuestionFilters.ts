@@ -6,6 +6,7 @@ export function useQuestionFilters() {
   const {
     page = '1',
     title = '',
+    keywords,
     specializationId,
     skills,
     complexity,
@@ -15,7 +16,7 @@ export function useQuestionFilters() {
   const filters = {
     page: Number(page) || 1,
     title: title || undefined,
-
+    keywords: keywords ? keywords.split(',') : undefined,
     specializationId: specializationId ? Number(specializationId) : undefined,
 
     skills: skills ? skills.split(',') : undefined,

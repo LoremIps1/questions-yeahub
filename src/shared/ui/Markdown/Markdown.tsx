@@ -4,7 +4,6 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import rehypeHighlight from 'rehype-highlight';
 
-
 import styles from './styles.module.css';
 import { CodeBlock } from '../CodeBlock/CodeBlock';
 
@@ -13,8 +12,6 @@ interface MarkdownProps {
 }
 
 export function Markdown({ children }: MarkdownProps) {
-  console.log(children);
-
   return (
     <div className={styles.markdown}>
       <ReactMarkdown

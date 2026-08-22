@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Button, DropdownMenu, DropdownMenuItem } from '@/shared/ui';
 import { ROUTES } from '@/shared/config';
@@ -9,6 +9,11 @@ interface QuestionActionsProps {
 
 export function QuestionActions({ questionId }: QuestionActionsProps) {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const handleDetails = () => {
+    navigate(`${ROUTES.question(questionId)}?${searchParams.toString()}`);
+  };
 
   return (
     <DropdownMenu
@@ -30,7 +35,7 @@ export function QuestionActions({ questionId }: QuestionActionsProps) {
       }
     >
       <DropdownMenuItem
-        onSelect={() => navigate(ROUTES.question(questionId))}
+        onSelect={handleDetails}
         icon={
           <svg
             width="20"

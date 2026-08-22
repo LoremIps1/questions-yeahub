@@ -9,6 +9,18 @@
   border-radius: 12px;
   gap: 8px;
   font-weight: 500;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: transparent !important;
+    color: #bababa !important;
+    svg {
+      fill: #bababa !important;
+      path {
+        fill: #bababa !important;
+      }
+    }
+  }
 }
 
 .default {

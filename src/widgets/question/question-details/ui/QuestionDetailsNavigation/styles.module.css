@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.skeletonButton {
+  width: 180px;
+  height: 47px;
+}
