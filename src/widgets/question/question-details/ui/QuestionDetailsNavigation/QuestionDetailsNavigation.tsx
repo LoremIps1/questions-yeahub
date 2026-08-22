@@ -11,18 +11,8 @@ interface QuestionDetailsNavigationProps {
 }
 
 export function QuestionDetailsNavigation({ questionId }: QuestionDetailsNavigationProps) {
-  const {
-    previousQuestionId,
-    nextQuestionId,
-    previousPage,
-    nextPage,
-    isNavigationLoading,
-    isUnavailable,
-  } = useQuestionNavigation(questionId);
-
-  if (isUnavailable) {
-    return null;
-  }
+  const { previousQuestionId, nextQuestionId, previousPage, nextPage, isNavigationLoading } =
+    useQuestionNavigation(questionId);
 
   return (
     <Card className={styles.content}>

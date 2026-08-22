@@ -32,7 +32,7 @@ export function PreviousQuestionButton({
   return (
     <Button
       variant="ghost"
-      disabled={!questionId || isLoading}
+      disabled={isLoading || !questionId || !page}
       onClick={handleClick}
       style={{ color: '#5E5E5E' }}
     >

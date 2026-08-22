@@ -20,7 +20,7 @@ export function QuestionDetails({ questionId }: QuestionDetailsProps) {
     skip: !questionId,
   });
 
-  if (isLoading) {
+  if (isLoading && !question) {
     return <QuestionDetailsSkeleton />;
   }
 

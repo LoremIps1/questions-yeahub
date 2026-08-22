@@ -29,7 +29,7 @@ export function NextQuestionButton({ questionId, page, isLoading }: NextQuestion
     <Button
       type="button"
       variant="ghost"
-      disabled={!questionId || isLoading}
+      disabled={isLoading || !questionId || !page}
       style={{ color: '#5E5E5E' }}
       onClick={handleClick}
     >

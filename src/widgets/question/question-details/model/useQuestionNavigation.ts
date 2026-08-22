@@ -8,9 +8,11 @@ export function useQuestionNavigation(questionId: number) {
   const page = Number(searchParams.get('page')) || 1;
 
   const title = searchParams.get('title') || undefined;
+
   const specializationId = Number(searchParams.get('specializationId')) || undefined;
 
   const skills = searchParams.get('skills')?.split(',') || undefined;
+
   const keywords = searchParams.get('keywords')?.split(',') || undefined;
 
   const complexity = searchParams.get('complexity')?.split(',').map(Number) || undefined;
@@ -26,12 +28,7 @@ export function useQuestionNavigation(questionId: number) {
     rate,
   };
 
-  const {
-    currentData: data,
-    isLoading,
-    isFetching,
-    isError,
-  } = useGetQuestionsQuery({
+  const { data, isFetching, isError } = useGetQuestionsQuery({
     page,
     ...filters,
   });
@@ -43,7 +40,11 @@ export function useQuestionNavigation(questionId: number) {
   const currentIndex = questions.findIndex((question) => question.id === questionId);
 
   const isFirst = currentIndex === 0;
+
   const isLast = currentIndex >= 0 && currentIndex === questions.length - 1;
+
+  const hasPreviousPage = page > 1;
+  const hasNextPage = page < totalPages;
 
   const { currentData: previousPageData, isFetching: isPreviousPageFetching } =
     useGetQuestionsQuery(
@@ -52,7 +53,7 @@ export function useQuestionNavigation(questionId: number) {
         ...filters,
       },
       {
-        skip: !isFirst || page <= 1,
+        skip: !isFirst || !hasPreviousPage,
       },
     );
 
@@ -62,17 +63,23 @@ export function useQuestionNavigation(questionId: number) {
       ...filters,
     },
     {
-      skip: !isLast || page >= totalPages,
+      skip: !isLast || !hasNextPage,
     },
   );
 
   const previousQuestion =
-    currentIndex > 0 ? questions[currentIndex - 1] : previousPageData?.data.at(-1);
+    currentIndex > 0
+      ? questions[currentIndex - 1]
+      : hasPreviousPage
+        ? previousPageData?.data.at(-1)
+        : undefined;
 
   const nextQuestion =
     currentIndex >= 0 && currentIndex < questions.length - 1
       ? questions[currentIndex + 1]
-      : nextPageData?.data[0];
+      : hasNextPage
+        ? nextPageData?.data[0]
+        : undefined;
 
   const previousPage = currentIndex > 0 ? page : previousQuestion ? page - 1 : undefined;
 
@@ -85,7 +92,7 @@ export function useQuestionNavigation(questionId: number) {
 
   const isNavigationLoading = isFetching || isPreviousPageFetching || isNextPageFetching;
 
-  const isUnavailable = isLoading || isError || !data || currentIndex === -1;
+  const isUnavailable = isError || !data || currentIndex === -1;
 
   return {
     previousQuestionId: previousQuestion?.id,
