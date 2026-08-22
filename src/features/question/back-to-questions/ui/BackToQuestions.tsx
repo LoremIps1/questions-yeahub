@@ -1,11 +1,19 @@
+import { ROUTES } from '@/shared/config';
 import { Button } from '@/shared/ui';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export function BackToQuestions() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const handleBack = () => {
+    const query = searchParams.toString();
+
+    navigate(query ? `${ROUTES.questions}?${query}` : ROUTES.questions);
+  };
 
   return (
-    <Button variant="text" onClick={() => navigate(-1)}>
+    <Button variant="text" onClick={handleBack}>
       <svg
         width="20"
         height="20"
