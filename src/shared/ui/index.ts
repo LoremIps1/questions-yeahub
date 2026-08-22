@@ -1,4 +1,5 @@
 export { Accordion } from './Accordion/Accordion';
+export { InfoSectionSkeleton } from './InfoSection/InfoSection.skeleton';
 export { DropdownMenu, DropdownMenuItem } from './DropdownMenu/DropdownMenu';
 export { StateMessage } from './StateMessage/StateMessage';
 export { Skeleton } from './Skeleton/Skeleton';

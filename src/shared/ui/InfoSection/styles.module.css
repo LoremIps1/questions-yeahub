@@ -14,3 +14,12 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+
+.skeletonLabel {
+  height: 18px;
+}
+
+.skeletonContent {
+  height: 38px;
+  width: 90px;
+}

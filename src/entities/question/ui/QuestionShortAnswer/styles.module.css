@@ -10,3 +10,10 @@
   font-weight: 500;
   line-height: 120%;
 }
+
+.skeletonTitle {
+  height: 24px;
+}
+.skeletonDesc {
+  height: 18px;
+}

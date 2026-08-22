@@ -1,6 +1,7 @@
 import { QuestionHeader, QuestionShortAnswer, useGetQuestionByIdQuery } from '@/entities/question';
 import styles from './styles.module.css';
 import { ExpandQuestionAnswer } from '@/features/question/expand-question-answer';
+import { QuestionDetailsSkeleton } from './QuestionDetails.skeleton';
 
 interface QuestionDetailsProps {
   questionId: number;
@@ -16,7 +17,7 @@ export function QuestionDetails({ questionId }: QuestionDetailsProps) {
   });
 
   if (isLoading) {
-    return <div>Загрузка...</div>;
+    return <QuestionDetailsSkeleton />;
   }
 
   if (isError || !question) {

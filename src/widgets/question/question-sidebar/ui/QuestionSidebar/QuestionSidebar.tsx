@@ -3,6 +3,7 @@ import { GuruCard } from '../QuestionSidebarGuru/QuestionSidebarGuru';
 import { QuestionSidebarMeta } from '../QuestionSidebarMeta/QuestionSidebarMeta';
 import styles from './styles.module.css';
 import { Sidebar } from '@/shared/ui';
+import { QuestionSidebarSkeleton } from './QuestionSidebar.skeleton';
 
 interface QuestionSidebarProps {
   questionId: number;
@@ -18,12 +19,13 @@ export function QuestionSidebar({ questionId }: QuestionSidebarProps) {
   });
 
   if (isLoading) {
-    return <div>Загрузка...</div>;
+    return <QuestionSidebarSkeleton />;
   }
 
   if (isError || !question) {
     return <div>Вопрос не найден</div>;
   }
+
   return (
     <Sidebar className={styles.sidebar}>
       <QuestionSidebarMeta question={question} />

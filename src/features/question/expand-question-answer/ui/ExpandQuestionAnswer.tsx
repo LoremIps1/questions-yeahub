@@ -1,5 +1,4 @@
-import { Card, ExpandableContent } from '@/shared/ui';
-import Markdown from 'react-markdown';
+import { Card, ExpandableContent, Markdown } from '@/shared/ui';
 import styles from './styles.module.css';
 
 interface ExpandQuestionAnswerProps {

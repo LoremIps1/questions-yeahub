@@ -8,4 +8,5 @@
 .row {
   display: flex;
   gap: 20px;
+  width: 100%;
 }
