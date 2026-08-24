@@ -44,4 +44,8 @@
   .mobileActions {
     display: block;
   }
+
+  .metaList {
+    gap: 16px;
+  }
 }

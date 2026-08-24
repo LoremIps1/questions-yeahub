@@ -22,6 +22,10 @@
   display: none;
 }
 
+.desktopNavigation {
+  flex: 1;
+}
+
 @media (width <= 992px) {
   .right,
   .desktopNavigation {

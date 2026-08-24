@@ -10,3 +10,9 @@
   gap: 20px;
   width: 100%;
 }
+
+@media (width <= 991px) {
+  .row {
+    flex-direction: column;
+  }
+}

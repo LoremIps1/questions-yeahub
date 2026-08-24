@@ -27,3 +27,9 @@
     display: block;
   }
 }
+
+@media (width <= 767px) {
+  .title {
+    font-size: 20px;
+  }
+}

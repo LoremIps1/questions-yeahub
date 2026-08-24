@@ -11,6 +11,10 @@
   font-size: 20px;
   line-height: 120%;
   font-weight: 500;
+
+  @media (width <= 767px) {
+    font-size: 16px;
+  }
 }
 
 .trigger {
@@ -21,18 +25,24 @@
   padding: 16px 24px;
   border: 0;
   background: transparent;
-
   color: inherit;
   font: inherit;
   text-align: left;
-
+  gap: 8px;
   cursor: pointer;
+
+  @media (width <= 991px) {
+    padding: 16px;
+  }
+  @media (width <= 767px) {
+    padding: 10px;
+  }
 }
 
 .trigerLeft {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
 }
 
@@ -43,6 +53,11 @@
   border-radius: 100%;
   background-color: var(--color-primary);
   flex-shrink: 0;
+  margin-top: 6px;
+  @media (width <= 767px) {
+    width: 5px;
+    height: 5px;
+  }
 }
 
 .chevron {

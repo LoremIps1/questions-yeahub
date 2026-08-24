@@ -10,3 +10,9 @@
   position: sticky;
   top: 24px;
 }
+
+@media (width <= 991px) {
+  .sidebar {
+    max-width: 100%;
+  }
+}

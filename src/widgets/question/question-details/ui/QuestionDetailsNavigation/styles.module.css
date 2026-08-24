@@ -9,3 +9,9 @@
   width: 180px;
   height: 47px;
 }
+
+@media (width <= 767px) {
+  .content {
+    padding: 16px;
+  }
+}

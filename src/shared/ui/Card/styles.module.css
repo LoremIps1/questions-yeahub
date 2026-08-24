@@ -12,3 +12,22 @@
   padding: 16px 24px;
   border-radius: 8px;
 }
+
+@media (width <= 991px) {
+  .lg {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  .md {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+}
+
+@media (width <= 767px) {
+  .lg,
+  .md {
+    padding: 10px 10px 20px;
+    border-radius: 12px;
+  }
+}
