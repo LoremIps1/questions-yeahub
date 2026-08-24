@@ -1,1 +1,1 @@
-export { QuestionsSidebar } from './ui/QuestionsSidebar';
+export { QuestionsSidebar } from './ui/QuestionsSidebar/QuestionsSidebar';

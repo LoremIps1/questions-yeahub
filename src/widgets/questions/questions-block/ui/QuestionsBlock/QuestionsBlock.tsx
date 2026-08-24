@@ -4,9 +4,10 @@ import { useQuestionFilters } from '@/features/questions/filter-questions/model/
 import { QuestionsList } from '../QuestionsList/QuestionsList';
 import { QuestionsEmpty } from '../QuestionsEmpty/QuestionsEmpty';
 import { QuestionsBlockSkeleton } from './QuestionsBlock.skeleton';
-import styles from './styles.module.css';
 import { QuestionsError } from '../QuestionsError/QuestionsError';
 import { Card, Pagination } from '@/shared/ui';
+import { QuestionsBlockHead } from '../QuestionsBlockHead/QuestionsBlockHead';
+import styles from './styles.module.css';
 
 export function QuestionsBlock() {
   const { filters, setPage } = useQuestionFilters();
@@ -28,20 +29,16 @@ export function QuestionsBlock() {
 
   return (
     <Card className={styles.content}>
+      <div>
+        <QuestionsBlockHead />
+
+        {!isEmpty && <QuestionsList questions={questions} />}
+      </div>
+
       {isEmpty ? (
         <QuestionsEmpty />
       ) : (
-        <>
-          <div>
-            <div className={styles.head}>
-              <h2 className={styles.title}>База вопросов</h2>
-            </div>
-
-            <QuestionsList questions={questions} />
-          </div>
-
-          <Pagination currentPage={page} totalPages={totalPages} onChange={setPage} />
-        </>
+        <Pagination currentPage={page} totalPages={totalPages} onChange={setPage} />
       )}
     </Card>
   );
