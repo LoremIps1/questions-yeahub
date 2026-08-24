@@ -9,10 +9,10 @@
   gap: 20px;
 }
 
-.link {
-  font-weight: 500;
+.desktop {
+  flex-direction: row;
 }
 
-.active {
-  color: var(--color-primary);
+.mobile {
+  flex-direction: column;
 }

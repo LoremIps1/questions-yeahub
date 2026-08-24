@@ -17,3 +17,18 @@
   align-items: center;
   gap: 20px;
 }
+
+.mobileMenu {
+  display: none;
+}
+
+@media (width <= 992px) {
+  .right,
+  .desktopNavigation {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+}
