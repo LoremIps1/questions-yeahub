@@ -6,10 +6,15 @@ import styles from './styles.module.css';
 
 interface QuestionAccordionProps {
   question: IQuestion;
-  actions?: ReactNode;
+  desktopActions?: ReactNode;
+  mobileAction?: ReactNode;
 }
 
-export function QuestionAccordion({ question, actions }: QuestionAccordionProps) {
+export function QuestionAccordion({
+  question,
+  desktopActions,
+  mobileAction,
+}: QuestionAccordionProps) {
   return (
     <Card className={styles.card} size="md">
       <Accordion value={String(question.id)} trigger={question.title}>
@@ -20,10 +25,12 @@ export function QuestionAccordion({ question, actions }: QuestionAccordionProps)
               <QuestionMetric label="Сложность" value={question.complexity} />
             </div>
 
-            {actions && actions}
+            {desktopActions && <div className={styles.desktopActions}>{desktopActions}</div>}
           </div>
 
           <Markdown>{question.shortAnswer}</Markdown>
+
+          {mobileAction && <div className={styles.mobileActions}>{mobileAction}</div>}
         </div>
       </Accordion>
     </Card>

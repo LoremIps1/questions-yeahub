@@ -30,3 +30,18 @@
   justify-content: space-between;
   gap: 20px;
 }
+
+.mobileActions {
+  display: none;
+  text-align: right;
+}
+
+@media (width <= 767px) {
+  .desktopActions {
+    display: none;
+  }
+
+  .mobileActions {
+    display: block;
+  }
+}
