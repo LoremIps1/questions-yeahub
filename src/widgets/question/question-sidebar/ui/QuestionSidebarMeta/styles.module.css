@@ -4,11 +4,8 @@
   gap: 24px;
 }
 
-.skills {
-  gap: 10px;
-}
-
-.keywords {
-  gap: 14px;
-  color: var(--color-primary);
+@media (width <= 1024px) {
+  .card {
+    display: none;
+  }
 }

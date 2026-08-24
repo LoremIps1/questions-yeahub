@@ -7,6 +7,8 @@ import { QuestionDetailsNavigation } from '../QuestionDetailsNavigation/Question
 import { QuestionError } from '../QuestionError/QuestionError';
 
 import styles from './styles.module.css';
+import { OpenMetaQuestion } from '@/features/question/open-meta-question';
+import { QuestionSidebarMetaInfo } from '@/widgets/question/question-sidebar';
 
 interface QuestionDetailsProps {
   questionId: number;
@@ -32,7 +34,14 @@ export function QuestionDetails({ questionId }: QuestionDetailsProps) {
 
   return (
     <div className={styles.question}>
-      <QuestionHeader question={question} />
+      <QuestionHeader
+        question={question}
+        action={
+          <OpenMetaQuestion>
+            <QuestionSidebarMetaInfo question={question} />
+          </OpenMetaQuestion>
+        }
+      />
 
       <QuestionDetailsNavigation questionId={question.id} />
 

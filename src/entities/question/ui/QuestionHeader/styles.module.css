@@ -18,6 +18,13 @@
   width: 100%;
 }
 
+.headerContentTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  justify-content: space-between;
+}
+
 .title {
   margin: 0;
   font-size: 24px;
@@ -36,4 +43,14 @@
 
 .skeletonDescription {
   height: 37px;
+}
+
+.action {
+  display: none;
+}
+
+@media (width <= 1024px) {
+  .action {
+    display: block;
+  }
 }
